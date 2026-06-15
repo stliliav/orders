@@ -1,20 +1,9 @@
 # orders
 ## Архитектура:
 
-HTTP Request
-    │
-    V
-OrderController       — REST API, валидация входных данных
-    │
-    V
-OrderService          — бизнес-логика, транзакции
-    │            │
-    V            V
-OrderRepository   RabbitConfig ──► очередь order.created
-    │                                   │
-    V                                   V
-PostgreSQL                      OrderEventListener
-                                (логирует + меняет статус на PROCESSING)
+
+<img width="667" height="361" alt="изображение" src="https://github.com/user-attachments/assets/d1f89c21-3aae-425d-9486-f95d3af4624c" />
+
 
 Стек: Java 21, Spring Boot 3.4, Spring Data JPA, Spring AMQP (RabbitMQ), Flyway, PostgreSQL, Springdoc OpenAPI
 
@@ -26,9 +15,8 @@ PostgreSQL                      OrderEventListener
 
 Поднимаются два сервиса:
 
-Сервис           Адрес 
-PostgreSQL       localhost:5432 (БД: orders_db, user: postgres, pass: password)
-RabbitMQ         localhost:5672RabbitMQ UIhttp://localhost:15672 (guest / guest)
+PostgreSQL с адресом: localhost:5432 (БД: orders_db, user: postgres, pass: password)
+RabbitMQ с адресом: localhost:5672RabbitMQ UIhttp://localhost:15672 (guest / guest)
 
 ## 2. Запустить приложение
 
