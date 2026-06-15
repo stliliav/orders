@@ -16,6 +16,7 @@
 Поднимаются два сервиса:
 
 PostgreSQL с адресом: localhost:5432 (БД: orders_db, user: postgres, pass: password)
+
 RabbitMQ с адресом: localhost:5672RabbitMQ UIhttp://localhost:15672 (guest / guest)
 
 ## 2. Запустить приложение
